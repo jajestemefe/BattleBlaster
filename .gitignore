@@ -1,0 +1,50 @@
+# Unreal generated files
+/Binaries/
+/DerivedDataCache/
+/Intermediate/
+/Saved/
+
+# Course and third-party source assets
+/Content/
+
+# RiderLink installation
+/Plugins/Developer/RiderLink/
+
+# IDE files
+/.idea/
+/.vs/
+/.vscode/
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+*.code-workspace
+.vsconfig
+/.ignore
+
+# Generated project files
+/Makefile
+/CMakeLists.txt
+/CMakeSettings.json
+/compile_commands.json
+
+# Compiled files
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+*.a
+*.lib
+*.exe
+*.out
+
+# Plugin build artifacts
+/Plugins/**/Binaries/
+/Plugins/**/Intermediate/
+
+# OS files
+.DS_Store
+Thumbs.db
