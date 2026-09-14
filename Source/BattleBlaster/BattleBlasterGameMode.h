@@ -7,6 +7,7 @@
 #include "Tank.h"
 #include "Tower.h"
 #include "ScreenMessage.h"
+#include "PlayerHud.h"
 
 #include "BattleBlasterGameMode.generated.h"
 
@@ -25,7 +26,11 @@ public:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UScreenMessage> ScreenMessageClass;
 	
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UPlayerHud> PlayerHudClass;
+	
 	UScreenMessage* ScreenMessageWidget;
+	UPlayerHud* PlayerHudWidget;
 	
 	UPROPERTY(EditAnywhere)
 	float GameOverDelay = 3.0f;

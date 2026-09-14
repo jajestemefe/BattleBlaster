@@ -26,7 +26,6 @@ void ABattleBlasterGameMode::BeginPlay()
 		{
 			UE_LOG(LogTemp, Display, TEXT("GameMode: Failed to find the Tank actor!"));
 		}
-
 	}
 
 	int32 i = 0;
@@ -47,11 +46,19 @@ void ABattleBlasterGameMode::BeginPlay()
 	if (PlayerController)
 	{
 		ScreenMessageWidget = CreateWidget<UScreenMessage>(PlayerController, ScreenMessageClass);
+		PlayerHudWidget = CreateWidget<UPlayerHud>(PlayerController, PlayerHudClass);
 		if (ScreenMessageWidget)
 		{
 			ScreenMessageWidget->AddToPlayerScreen();
 			ScreenMessageWidget->SetMessageText("Get Ready!");
 		}
+		if (PlayerHudWidget)
+		{
+			PlayerHudWidget->AddToPlayerScreen();
+			PlayerHudWidget->SetMessageText(FString::FromInt(TowerCount));
+			PlayerHudWidget->SetVisibility(ESlateVisibility::Hidden);
+		}
+		
 	}
 	
 	CountdownSeconds = CountdownDelay;
@@ -79,6 +86,7 @@ void ABattleBlasterGameMode::OnCountdownTimerTimeout()
 		GetWorldTimerManager().ClearTimer(CountdownTimerHandle);
 		UE_LOG(LogTemp, Display, TEXT("timer Cleared!"));
 		ScreenMessageWidget->SetVisibility(ESlateVisibility::Hidden);
+		PlayerHudWidget->SetVisibility(ESlateVisibility::Visible);
 	}
 	
 	CountdownSeconds -= 1;
@@ -107,6 +115,7 @@ void ABattleBlasterGameMode::ActorDied(AActor* DeadActor)
 				IsGameOver = true;
 				IsVictory = true;
 			}
+			PlayerHudWidget->SetMessageText(FString::FromInt(TowerCount));
 		}
 	}
 	
