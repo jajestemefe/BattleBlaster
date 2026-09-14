@@ -3,7 +3,7 @@
 
 #include "BattleBlasterGameInstance.h"
 
-#include "InterchangeFactoryBase.h"
+
 #include "Kismet/GameplayStatics.h"
 
 void UBattleBlasterGameInstance::LoadNextLevel()
