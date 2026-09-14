@@ -2,6 +2,8 @@
 
 
 #include "Projectile.h"
+
+#include "Tower.h"
 #include "Kismet/GameplayStatics.h"
 
 
@@ -51,8 +53,14 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, U
 	{
 		if (OtherActor && (OtherActor != MyOwner) && (OtherActor != this))
 		{
-			UGameplayStatics::ApplyDamage(OtherActor, Damage, MyOwner->GetInstigatorController(), 
-				this, UDamageType::StaticClass());
+			if (Cast<ATower>(OtherActor) && Cast<ATower>(MyOwner))
+			{
+			}
+			else
+			{
+				UGameplayStatics::ApplyDamage(OtherActor, Damage, MyOwner->GetInstigatorController(), 
+					this, UDamageType::StaticClass());
+			}
 			
 			if (HitParticles && HitSound)
 			{

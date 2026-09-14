@@ -46,6 +46,13 @@ void UHealthComponent::OnDamageTaken(AActor* DamagedActor, float Damage, const U
 	if (Damage > 0.f)
 	{
 		Health -= Damage;
+		
+		if (Cast<ATank>(DamagedActor) &&
+			BattleBlasterGameMode &&
+			BattleBlasterGameMode->PlayerHudWidget)
+		{
+			BattleBlasterGameMode->PlayerHudWidget->SetPlayerHealthPercentage(Health / MaxHealth);
+		}
 		if (Health <= 0.f)
 		{
 			if (BattleBlasterGameMode)
