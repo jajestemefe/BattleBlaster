@@ -28,11 +28,11 @@ I also gained experience diagnosing gameplay bugs, extending tutorial code,
 building Unreal projects on Linux, and managing changes through Git branches
 and pull requests.
 
-![BattleBlaster combat](Docs/Images/BattleBlasterPicture3.png)
-
 ## Gameplay Video
 
-A gameplay video recorded with OBS Studio will be added here.
+[![Watch the BattleBlaster gameplay demo](Docs/Images/BattleBlasterPicture3.png)](https://youtu.be/vPeHSkbgAeY)
+
+▶️ [Watch the full gameplay demo on YouTube](https://youtu.be/vPeHSkbgAeY)
 
 ## Technology
 
